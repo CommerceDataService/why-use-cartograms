@@ -1,0 +1,368 @@
+<html>
+<head>
+    <link rel="shortcut icon" href="https://www.commerce.gov/sites/all/themes/doc/doc_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title> Maps can lie </title>
+
+        <link rel="stylesheet" href="css/creative.css" type="text/css">
+        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/parallax.js"></script>
+
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="pandoc"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+        <link href="data:text/css;charset=utf-8,%0Aimg%2Eleaflet%2Dtile%20%7B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Aborder%2Dradius%3A%200%3B%0Aborder%3A%20none%3B%0A%7D%0A%2Einfo%20%7B%0Apadding%3A%206px%208px%3B%0Afont%3A%2014px%2F16px%20Arial%2C%20Helvetica%2C%20sans%2Dserif%3B%0Abackground%3A%20white%3B%0Abackground%3A%20rgba%28255%2C255%2C255%2C0%2E8%29%3B%0Abox%2Dshadow%3A%200%200%2015px%20rgba%280%2C0%2C0%2C0%2E2%29%3B%0Aborder%2Dradius%3A%205px%3B%0A%7D%0A%2Elegend%20%7B%0Aline%2Dheight%3A%2018px%3B%0Acolor%3A%20%23555%3B%0A%7D%0A%2Elegend%20svg%20text%20%7B%0Afill%3A%20%23555%3B%0A%7D%0A%2Elegend%20svg%20line%20%7B%0Astroke%3A%20%23555%3B%0A%7D%0A%2Elegend%20i%20%7B%0Awidth%3A%2018px%3B%0Aheight%3A%2018px%3B%0Afloat%3A%20left%3B%0Amargin%2Dright%3A%208px%3B%0Aopacity%3A%200%2E7%3B%0A%7D%0A" rel="stylesheet" />
+        <style type="text/css">code{white-space: pre;}</style>
+        <link href="data:text/css;charset=utf-8,pre%20%2Eoperator%2C%0Apre%20%2Eparen%20%7B%0Acolor%3A%20rgb%28104%2C%20118%2C%20135%29%0A%7D%0Apre%20%2Eliteral%20%7B%0Acolor%3A%20%23990073%0A%7D%0Apre%20%2Enumber%20%7B%0Acolor%3A%20%23099%3B%0A%7D%0Apre%20%2Ecomment%20%7B%0Acolor%3A%20%23998%3B%0Afont%2Dstyle%3A%20italic%0A%7D%0Apre%20%2Ekeyword%20%7B%0Acolor%3A%20%23900%3B%0Afont%2Dweight%3A%20bold%0A%7D%0Apre%20%2Eidentifier%20%7B%0Acolor%3A%20rgb%280%2C%200%2C%200%29%3B%0A%7D%0Apre%20%2Estring%20%7B%0Acolor%3A%20%23d14%3B%0A%7D%0A" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+          pre:not([class]) {
+            background-color: white;
+          }
+        </style>
+        <script type="text/javascript">
+        if (window.hljs && document.readyState && document.readyState === "complete") {
+           window.setTimeout(function() {
+              hljs.initHighlighting();
+           }, 0);
+        }
+        </script>
+
+        <style>
+            
+        hr {
+            width: 100%;
+            height: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color:#271;
+            color:#271;
+            border: 0 none;
+            }
+          #btn {
+            background: #271;
+            /*background: #d93434;*/
+            background-image: -webkit-linear-gradient(top, #271, #820a0a);
+            background-image: -moz-linear-gradient(top, #271, #820a0a);
+            background-image: -ms-linear-gradient(top, #271, #820a0a);
+            background-image: -o-linear-gradient(top, #271, #820a0a);
+            background-image: linear-gradient(to bottom, #271, #820a0a);
+            -webkit-border-radius: 4;
+            -moz-border-radius: 4;
+            border-radius: 4px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+          }
+
+          #btn:hover {
+            background: #6387cf;
+            background-image: -webkit-linear-gradient(top, #6387cf, #3498db);
+            background-image: -moz-linear-gradient(top, #6387cf, #3498db);
+            background-image: -ms-linear-gradient(top, #6387cf, #3498db);
+            background-image: -o-linear-gradient(top, #6387cf, #3498db);
+            background-image: linear-gradient(to bottom, #6387cf, #3498db);
+            text-decoration: none;
+          }
+
+          .main-container {
+            max-width: 940px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          code {
+            color: inherit;
+            background-color: rgba(0, 0, 0, 0.04);
+          }
+          img {
+            max-width:100%;
+            height: auto;
+          }
+          #woot{
+            background-color: white;
+            opacity: 0.9;
+            color:#271;
+            padding: 10px;
+            border-radius: 10px;
+            font-family: Helvetica;
+          }
+          #weight{
+            font-weight: bold;
+          }
+            .main-container {
+              max-width: 940px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            code {
+              color: inherit;
+              background-color: rgba(0, 0, 0, 0.04);
+            }
+            img {
+              max-width:100%;
+              height: auto;
+            }
+        </style>
+    </head>
+
+<body>
+
+
+<!--NavBar-->
+     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://razor.occams.info/"><img style="max-width:100%; max-height:100%;" src="img/logo.png"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#top">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#story">Visuals</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#code">Code</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<!--Cover-->
+
+    <section class="scroll backie datacorps " id="top">
+        <div class="header-content">
+            <div class="header-content-inner" >
+                <h2 style="position:absolute;left:15%; top:50%;text-align:left;">
+                    <div id="woot">
+                        <span style="font-size:150%;line-height:1.3;" >
+                        <strong>how maps lie:</strong><br></span>
+                        <span style="font-size:80%;line-height:1.3;">
+                          the next time<br>you look at a map,<br>think about who<br><em>doesn’t</em> appear in it.<br></span>
+
+                          <a id = "btn" href="https://github.com/CommerceDataService/why-use-cartograms/zipball/master"> <strong>ZIP File</strong></a>
+                          <a id = "btn" href="https://github.com/CommerceDataService/why-use-cartograms/tarball/master"> <strong>TAR Ball</strong></a>
+                          <a id = "btn" href="https://github.com/CommerceDataService/why-use-cartograms"><strong>GitHub</strong></a>
+
+                          <p><br>Use Python, PIL, and PyProj <br> to show latent bias in maps</p>
+                      </div>
+                </h2>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    <body>
+
+
+
+<!--header-->
+<div id='story' class="container-fluid main-container" style="background-color:white;">
+    <br>
+    <div class='container'>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-2"style="font-family:Helvetica;text-align:left;background-color:white; border-style: solid;
+                border-color:lightgrey;border-radius:5px;border-width: 2px;">
+                <p><span style="font-size:120%;color:#271;">Credits</span>
+                    <small><br><strong>Author</strong>
+                    <ul>
+                        <li>Joshua Tauberer, Ph.D.</li>
+                    </ul>
+                    <strong>Edited by the Commerce Data Service</strong><br>
+                    <ul>
+                        <li>Tyrone Grandison, Ph.D.</li>
+                        <li>Star Ying</li>
+                    </ul>
+                    </small>
+                </p>
+            </div>
+            <div class="col-lg-7">
+                <p style="font-family:Helvetica;">
+                <span style="font-size:150%;color:darkgrey;"><strong>Foreword from the Commerce Data Service:</strong><br></span>
+                <span style='color:darkgrey'>
+                A recent post by Joshua Tauberer, Ph.D. <a href="https://medium.com/@joshuatauberer/how-that-map-you-saw-on-538-under-represents-minorities-by-half-and-other-reasons-to-consider-a-4a98f89cbbb1#.vi8uopjjo">here</a> shows how one of the most common visualizations used, the map, can contain inherent bias. We here at the <a href="https://www.commerce.gov/dataservice/">Commerce Data Service</a> were so impressed with his analysis and concise message that we wanted to mirror that original post as a <a href="https://www.commerce.gov/datausability/">Commerce Data Usability Project</a> tutorial. What is presented below is his original post (with some minor edits on our part) and links to both his <a href="https://github.com/JoshData/why-use-cartograms">original Github repository</a> and <a href="https://github.com/CommerceDataService/why-use-cartograms"></a>.
+                </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container-fluid main-container">
+    <p style="font-family:Helvetica;">
+    <span style="font-size:150%;color:#271;"><strong>Maps can lie</strong><br></span>
+    Maps tell a story. And maps can also lie. Everyone already knows from The West Wing that with a poor choice of map projection — like on most maps — Greenland is too big and Africa is too small.
+    </p>
+    <p>But there’s another problem: Because we don’t all live evenly spaced throughout the world, demographic maps favor populations that live in low density areas. Here’s why that’s meaningful:
+    <ul>
+        <li>Although racial minorities make up 26% of the U.S. population, they account for just 16% of the space on typical demographic maps of the United States. Maps could be a reason policymakers don’t focus on minority issues.</li>
+        <li>The 50% of the U.S. population in the most dense part of the country lives in just 1% of the nation’s land area. Who actually lives in the 99% of the country we see?</li>
+        <li>Maps of political sentiment give more space to the political right. Although Obama took just over 50% of the vote in the 2012 election, his voters account for only 38% of the space on a typical election map — making it look like his opponent should have won.</li>
+    </ul>
+    </p>
+    <p>It’s not surprising that there are disparities in how populations are represented following the urban-rural divide. But <strong>it is alarming <emph>just how large</emph> those disparities are</strong>.</p>
+</div>
+
+<br>
+
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;">
+        <span style="font-size:150%;color:#271;"><strong>Just the Basics</strong><br></span>
+        Let’s start with the basics: Most Americans in the contiguous United States live in or near metropolitan areas.
+    </p>
+    <p><strong>All of those people — 50% of the U.S. population — inhabit just 1% of the land area:</strong></p>
+    <br><br>
+    <img src="img/josh_1.png" width="100%">
+    <br><br>
+    <p>And, the converse is also true: about 50% of the country’s land area is inhabited by just 1% of the population.</p>
+    <p>In a typical demographic map, counties (or equivalent) are colored according to some measurement. Grouping people into counties evens out the population density, slightly. When you group individuals into counties, half of the map (57%) is inhabited by 5% of the population. Here’s how that looks, with most of the Midwest and West empty:</p>
+    <br><br>
+    <img src="img/josh_2.png" width="100%">
+    <br><br>
+</div>
+<br><br>
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;">
+        <span style="font-size:150%;color:#271;"><strong>That’s a problem.</strong><br></span>
+        <br><br>
+    <img src="img/josh_3.png" width="100%"></p>
+    <br><br>
+    <p>No one actually lives in most of the places demographic maps like these portray, like this one from FiveThirtyEight (at left).</p>
+    <p>It’s the same 5% of the population who live in most of these maps who we are looking at over and over again.</p>
+    <p>And most of the other parts of the map are not representative of the population as a whole either because urban areas are disproportionately squeezed.</p>
+</div>
+
+<br><br>
+
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>How to know</strong><br></span>
+    To quantify how people show up on a map, I combined the U.S. Census’s 2010–2014 <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey 5-Year Estimates</a> (ACS) with the U.S. Census’s 2014 <a href="http://www.census.gov/geo/maps-data/data/tiger.html">TIGER geospatial data</a>, which says where those people are located. The short story is I made a separate image of the 71,954 Census tracts and the 3,108 counties in the contiguous United States and counted up how many pixels each tract and county took up in the image. (See the <a href="#code">end</a>  of the post for further details.)</p>
+    <p>When I say a “typical map” I’m referring to county-by-county demographic maps, and when I say “land area” I’m using the smaller Census tracts to see where exactly people live. When I say a population “accounts for” a proportion of the pixels on a map, I’ve apportioned parts of each pixel on the map to demographic groups based on who is living in each pixel.</p>
+</div><br><br>
+
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>This is a problem for anyone who lives in a city.</strong><br></span>
+    Although 5% of the U.S. population takes public transit to work, they account for only 1% of the pixels on a typical map. 38% of the U.S. population lives in multi-family housing structures (what the ACS calls single-family-attached and 2-or-more-unit housing structures), but those individuals account for just 29% of the pixels on a typical map.</p>
+    <br><br>
+    <img src="img/josh_4.png" width="100%">
+    <br><br>
+    <p>When I previously wrote about this in 2013, paying particular attention to how political information is displayed in maps like the map on the left from Wikipedia, I found that six congressional districts, all in New York City, are smaller than one pixel in a typically sized map. One-person-one-vote loses meaning if some votes are too small to see.</p>
+</div><br><br>
+
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;">And it’s a problem for <strong>racial minorities</strong><br></span>
+    And it’s a problem for racial minorities (those who identified as a race other than “white”). These individuals are given <strong>half as much space in a typical map per capita as white Americans!</strong></p>
+    <p>That’s because racial minority individuals are even more clustered in high-density areas than the population as a whole. Here’s where 95% of racial minority individuals live:</p>
+    <br><br>
+    <img src="img/josh_5.png" width="100%">
+    <br><br>
+    <p>Here’s how that looks on a county-by-county map (if you want to compare that to the map earlier of the U.S. population as a whole):</p>
+    <br><br>
+    <img src="img/josh_6.png" width="100%">
+    <br><br>
+    <p>If you apportion all of the pixels on a typical map by the demographic breakdown in the pixel, although racial minorities make up 26% of the U.S. population, they account for just 16% of the pixels. In other words, for every pixel that represents a white person, only 0.53 pixels represent a racial minority.</p>
+    <p>The next time you look at a map, think about who doesn’t appear in it.</p>
+</div>
+<br><br>
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>The rural-urban divide</strong><br></span>
+    As I mentioned in the introduction, the rural-urban divide also affects political maps. Using the 2012 presidential election results, while Democrats were 51% of the population they accounted for only 38% of the space on a typical election map. Or, for every pixel that represents a Republican, only 0.59 pixels represent a Democrat.</p>
+    <p>The last demographic measurements I looked at were household income and poverty status, and fortunately the distortion doesn’t affect, if not helps, these individuals:
+    <ul>
+        <li>16% of the population lives with an income below the poverty line (as defined by ACS). They account for 17% — about the same proportion — of the space on a typical map.</li>
+        <li>The 50% of the population living in the tracts with the lowest median household income accounts for 79% of the space on a typical map — i.e. far more than their proportional share.</li>
+    </ul>
+    </p>
+    <p>Poverty affects both rural and urban areas, of course, so it makes some sense that we wouldn’t see a distortion here. The distortion in income is probably explained just by the cost of living being lower in rural areas.</p>
+</div><br><br>
+
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>What is there to do about it?</strong><br></span>
+    For one, use a cartogram wherever possible. A cartogram allots equal area in a map to equally meaningful units. For a demographic map, a cartogram would ensure that every individual is represented by the same amount of space.</p>
+    <br><br>
+    <img src="img/josh_7.png" width="100%">
+    <br><br>
+    <p>I’ve always admired The New York Times for using cartograms — though they do so less so lately. The one at left <a href="http://www.nytimes.com/interactive/2013/11/20/us/which-states-will-allow-old-health-policies-to-be-renewed.html?smid=pl-share">sizes U.S. states by the number of health insurance plans available.</a></p>
+    <p>If this were about demographic statistics, the states would be sized so that their area is proportional to their population.</p>
+    <p>Cartograms are often derided as ugly. And bad ones certainly are. But they can also be quite elegant, as in the The Telegraph’s U.K. election results map in the form of a grid of hexagons (which I’m told is common for representing the U.K.). Each hex represents one seat in Parliament.</p>
+    <br><br>
+    <img src="img/josh_8.png" width="50%" class="img-responsive center-block">
+    <p>It’s hard to make cartograms, and even harder to make cartograms that are intuitive to understand. That’s in part because of readers’ lack of familiarity, which can be fixed by creating more cartograms.</p>
+    <p>Alternatively, don’t use a map.</p>
+</div>
+<br><br>
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>No map at all is better than a map that perpetuates injustice.</strong><br></span>
+    So as my friend Ben Klemens sums up-
+    </p>
+    <div class="col-md-3"></div>
+    <div class="col-md-6"><blockquote width="100%" class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">.<a href="https://twitter.com/JoshData">@joshdata</a> asks why we keep drawing maps of land when it&#39;s the people we&#39;re interested in: <a href="https://t.co/9U0Cdq365I">https://t.co/9U0Cdq365I</a></p>&mdash; Ben Klemens (@b__k) <a href="https://twitter.com/b__k/status/698354519240011776">February 13, 2016</a></blockquote></div>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<br><br>
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>This isn’t the huge-Greenland-tiny-Africa problem.</strong><br></span>
+    You’ve probably seen the West Wing episode when cartographers explain that maps distort the relative size of countries. Greenland looks big but it isn’t. This is a well-known problem with the Mercator projection, which is fantastic if you are <a href="https://en.wikipedia.org/wiki/Rhumb_line#Application">navigating the high seas</a> but awful if you are coloring in the boundaries of countries to display things like population demographics.</p>
+    <br><br>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vVX-PrBRtTY" frameborder="0" allowfullscreen></iframe>
+    <br><br>
+    <p>With an equal-area map projection like Gall-Peters, every area on the Earth’s surface is represented by an appropriately sized area on the map, but at the cost of distorting shapes.</p>
+    <p>I’ve used an equal-area projection for the maps in the post. The problem I’m discussing isn’t the projection: it’s the distribution of people.</p>
+</div>
+<br><br>
+<div class="container-fluid main-container" style="background-color:white;">
+    <p style="font-family:Helvetica;"><span style="font-size:150%;color:#271;"><strong>Methodology</strong><br></span>
+    I put each of the the 71,954 Census tracts and 3,108 Census counties in the contiguous United States that have at least one resident into an 800-by-500 pixel map of the contiguous United States in an Albers Equal Area projection. Then I counted how many pixels each tract and county took up in the final map. Where these geographic units co-occurred at a pixel, I apportioned the pixel equally among the units. Tracts and counties were drawn no smaller than a single pixel.</p>
+    <p>I then apportioned the pixels to people according to population ratios within each tract or county. For instance, if a tract of 4,000 people is 75% right-handed and that track is represented by 4.8 pixels on the map, I would apportion 3.6 pixels to right-handed individuals and 1.2 pixels to left-handed individuals. That’s what I mean above when I say a population “accounts for” a certain number of pixels.</p>
+    <p>My images, except where noted, are plotting tracts. That’s because tracts are a better representation of how much land area people are inhabiting, and they produce nicer images. But most demographic maps are drawn at the level of counties. So when reporting numbers, I used “land area” to refer to an analysis based on tracts and “typical map” to refer to an analysis based on counties. Most of the numbers come out around the same in both levels of detail.</p>
+    <p><em>CHANGED on FEB. 13, 2016: When I first posted this (yesterday) I had only done an analysis based on tracts. Most maps are drawn by county, though. So on Feb. 13 I revised the numbers that refer to “typical maps” to be based on a county-by-county analysis. The numbers were only slightly different.</em></p>
+</div>
+
+<!--Do more-->
+<div id='code' style="color:black;font-family:Helvetica;" >
+    <div class="container-fluid main-container">
+    <p style="font-family:Helvetica"><span style="font-size:200%;color:#271;"><br><strong>Getting Started</strong></span>
+        <br>In this tutorial, we'll go over how to collate the required data from the PTMT web site using Python web scraping, then walk through creating the visualization in Tableau Public. Follow along in the Jupyter Notebook below or check out the code files at <a href="https://github.com/CommerceDataService/why-use-cartograms">Github</a>. 
+        <br><br>
+        <a href="./why-use-cartograms.ipynb">Download Jupyter Notebook Version</a>
+    </p>
+    </div>
+</div>
+
+<div>
+<iframe src="why-use-cartograms.html" marginwidth="0" frameborder = "0"  marginheight="0" scrolling="no" width="100%" height="100%" onload="resizeIframe(this)"></iframe>
+</div>
+
+<script language="javascript" type="text/javascript">
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
+
+
+</body>
+</html>
